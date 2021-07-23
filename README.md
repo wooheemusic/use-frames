@@ -1,7 +1,7 @@
 > DO NOT USE THIS MODULE YET. I just started it. I need some tests.
 
 # use-frames
-This module is a set of [react hook](https://ko.reactjs.org/docs/hooks-intro.html)s and mathematical [explicit functions](https://en.wikipedia.org/wiki/Parametric_equation#Computer-aided_design). The hooks help clients to animate the DOM by continuously releasing numbers of the range of a function or elements of an array.
+This module is a set of [react hook](https://reactjs.org/docs/hooks-intro.html)s and mathematical [explicit functions](https://en.wikipedia.org/wiki/Parametric_equation#Computer-aided_design). The hooks help clients to animate the DOM by continuously releasing numbers of the range of a function or elements of an array.
 
 ## Demo and simulator
 
