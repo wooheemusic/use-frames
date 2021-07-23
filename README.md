@@ -49,10 +49,10 @@ const n = getFramesFromMilli(1000 / 3); // 20 frames for 1000/3 ms
 Only the Monte-Carlo method is implemented. I need to study the javascript numerical precision.
 
 ## References
-[https://ko.reactjs.org/docs/hooks-intro.html](https://ko.reactjs.org/docs/hooks-intro.html)
-[https://github.com/gre/bezier-easing/blob/master/src/index.js](https://github.com/gre/bezier-easing/blob/master/src/index.js)
-[https://en.wikipedia.org/wiki/Parametric_equation](https://en.wikipedia.org/wiki/Parametric_equation)
-[https://en.wikipedia.org/wiki/Polynomial_interpolation](https://en.wikipedia.org/wiki/Polynomial_interpolation)
+- [https://reactjs.org/docs/hooks-intro.html](https://reactjs.org/docs/hooks-intro.html)
+- [https://github.com/gre/bezier-easing/blob/master/src/index.js](https://github.com/gre/bezier-easing/blob/master/src/index.js)
+- [https://en.wikipedia.org/wiki/Parametric_equation](https://en.wikipedia.org/wiki/Parametric_equation)
+- [https://en.wikipedia.org/wiki/Polynomial_interpolation](https://en.wikipedia.org/wiki/Polynomial_interpolation)
 
 ## License
 
