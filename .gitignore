@@ -1,0 +1,10 @@
+/node_modules
+
+/*.js
+/*.html
+
+/*/
+
+!/src/
+!/examples/
+!/babel.config.js

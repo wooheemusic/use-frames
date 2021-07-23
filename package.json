@@ -1,0 +1,39 @@
+{
+  "name": "use-frames",
+  "version": "1.0.0",
+  "description": "react hooks and numerical functions for react animation",
+  "author": "wooheemusic <wooheemusic@gmail.com> (https://github.com/wooheemusic)",
+  "license": "MIT",
+  "repository": "wooheemusic/use-frames",
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/wooheemusic/use-frames/issues"
+  },
+  "homepage": "https://github.com/wooheemusic/use-frames#readme",
+  "scripts": {
+    "babel": "npx babel ./src -d ./"
+  },
+  "keywords": [
+    "react",
+    "frames",
+    "curve",
+    "bezier",
+    "cubic-bezier",
+    "requestAnimationFrame",
+    "interpolation",
+    "quadratic",
+    "polynomial",
+    "numerical",
+    "animation"
+  ],
+  "peerDependencies": {
+    "react": "^16.8 || 17",
+    "react-dom": "^16.8 || 17"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "babel-preset-minify": "^0.5.1"
+  }
+}
