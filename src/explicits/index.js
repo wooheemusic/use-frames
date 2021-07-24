@@ -3,6 +3,7 @@ import getCubicBezier from './getCubicBezier';
 import getMonomial from './getMonomial';
 // import getPolynomial from './getPolynomial';
 import getQuadraticBezier from './getQuadraticBezier';
+import linear from './linear';
 
 export {
     exponential,
@@ -10,6 +11,7 @@ export {
     getMonomial,
     // getPolynomial,
     getQuadraticBezier,
+    linear,
 }
 
 export default  {
@@ -18,4 +20,5 @@ export default  {
     getMonomial,
     // getPolynomial,
     getQuadraticBezier,
+    linear,
 }
