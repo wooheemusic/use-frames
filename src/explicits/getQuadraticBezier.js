@@ -1,20 +1,18 @@
 
-import qb from '../parametrics/quadraticBezier';
+import qb, { sdqb } from '../parametrics/quadraticBezier';
 import deduceFromParametric from '../tools/deduceFromParametric';
 
 function getInverse(xa) {
-    if ( xa === 0.5) {
+    if (sdqb(xa)() === 0) {
         return x => x;
     } else {
-        const base = 1 - 2 * xa; 
-        const rbase = Math.sqrt(base);
-        const A = xa * xa / base;
-        const rA = Math.sqrt(A);
-        return x => (Math.sqrt(A + x) - rA) / rbase
+        return function quadraticBezier(x) {
+            return ((-2) * xa + Math.sqrt(4 * xa * xa + (4 - 8 * xa) * x)) / (2 - 4 * xa)
+        }
     }
 }
 
-export function getNumericalQuadraticBezier(x, y) { 
+export function getNumericalQuadraticBezier(x, y) {
     return deduceFromParametric(qb(x), qb(y))
 }
 
