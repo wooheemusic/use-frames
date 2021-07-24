@@ -10,9 +10,4 @@ export {
     useQuadraticBezier,
 };
 
-export default {
-    useCubicBezier,
-    useCurve,
-    useFrames,
-    useQuadraticBezier,
-}
+export default useFrames;

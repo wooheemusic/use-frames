@@ -1,6 +1,7 @@
 import getRange from './getRange';
 import monteCarlo from '../methods/monteCarlo';
 
+// empiricism from https://github.com/gre/bezier-easing/blob/master/src/index.js
 const INTERVALS_DEFAULT = 10;
 const PRECISION_DEFAULT = 0.0000001;
 
