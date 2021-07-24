@@ -47,10 +47,6 @@ export default function useFrames(_state) {
         return stop;
     }, [range.length, from, to, onEnd, restart]);
 
-    useEffect(() => {
-        current === to && typeof onEnd === 'function' && onEnd({ range, restart, from, to, onEnd });
-    }, [current === to, onEnd])
-
     function setFrames(options) {
         typeof options === 'function' && (options = options({ range, restart, from, to, onEnd }))
         if ('range' in options) setRange(options.range);
@@ -59,6 +55,15 @@ export default function useFrames(_state) {
         if ('to' in options) setTo(options.to);
         if ('onEnd' in options) setOnEnd({ onEnd: options.onEnd });
     }
+
+    useEffect(() => {
+        if (current === to && typeof onEnd === 'function') {
+            const state = onEnd({ range, restart, from, to, onEnd });
+            if (typeof state === 'object' || typeof state === 'function') {
+                setFrames(state);
+            }
+        }
+    }, [current === to, onEnd])
 
     // If a shorter range is applied, current cannot be adjusted to its shorter length before it renders once.
     return [range[Math.min(current, range.length -1)], setFrames];
