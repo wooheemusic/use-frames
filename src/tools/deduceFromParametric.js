@@ -17,13 +17,13 @@ export default function deduceFromParametric(pfx, pfy, intervals = INTERVALS_DEF
     const domainT = getRange(intervals, x => x);
 
     return function deduced(x) {
-        let i = 1; // exclude 0, unnecessary
-        for (; i <= curvyRangeX.length; i++) {
-            if (curvyRangeX[i] > x) {
+        let i = intervals; // intervals === curvyRangeX.length - 1
+        for (let j = 1; j < curvyRangeX.length; j++) {
+            if (curvyRangeX[j] >= x) {
+                i = j;
                 break;
             }
         }
-        if (curvyRangeX[i - 1] === x) return pfy(domainT[i - 1])
         return pfy(monteCarlo(pfx, x, domainT[i - 1], domainT[i], precision));
     }
 }
