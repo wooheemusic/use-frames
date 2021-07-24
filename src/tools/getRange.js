@@ -8,6 +8,6 @@ export default function getRange(n, fs) {
         Y[i] = fs(accumulator);
         accumulator += interval;
     }
-    y[n] = fs(1);
+    Y[n] = fs(1);
     return Y;
 }

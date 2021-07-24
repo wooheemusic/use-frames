@@ -9,6 +9,6 @@ export default function getSummedRange(n, ...Fs) {
         Y[i] = sum(Fs, accumulator);
         accumulator += interval;
     }
-    y[n] = sum(Fs, 1);
+    Y[n] = sum(Fs, 1);
     return Y;
 }
