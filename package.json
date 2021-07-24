@@ -1,6 +1,6 @@
 {
   "name": "use-frames",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "react hooks and numerical functions for react animation",
   "author": "wooheemusic <wooheemusic@gmail.com> (https://github.com/wooheemusic)",
   "license": "MIT",
