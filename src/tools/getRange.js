@@ -4,9 +4,10 @@ export default function getRange(n, fs) {
     const Y = new Array(n + 1);
     const interval = 1 / n;
     let accumulator = 0;
-    for (let i = 0; i <= n; i++) {
+    for (let i = 0; i < n; i++) {
         Y[i] = fs(accumulator);
         accumulator += interval;
     }
+    y[n] = fs(1);
     return Y;
 }

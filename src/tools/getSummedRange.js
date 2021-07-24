@@ -5,9 +5,10 @@ export default function getSummedRange(n, ...Fs) {
     const Y = new Array(n + 1);
     const interval = 1 / n;
     let accumulator = 0;
-    for (let i = 0; i <= n; i++) {
+    for (let i = 0; i < n; i++) {
         Y[i] = sum(Fs, accumulator);
         accumulator += interval;
     }
+    y[n] = sum(Fs, 1);
     return Y;
 }
