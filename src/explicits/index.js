@@ -1,5 +1,5 @@
-import getExponential from './exponential';
 import getCubicBezier from './getCubicBezier';
+import getExponential from './getExponential';
 import getMonomial from './getMonomial';
 // import getPolynomial from './getPolynomial';
 import getQuadraticBezier from './getQuadraticBezier';
