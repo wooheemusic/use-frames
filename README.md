@@ -124,6 +124,13 @@ Only the *Monte-Carlo* method is implemented. I need to study the javascript num
 ## History ;;
 This module started from [bezier-easing](https://github.com/gre/bezier-easing). One day, I read its code and did not understand it. So I reviewed refs about numerical anaysis and got to write a similar code. But I still do not understande its empiricism of NEWTON_MIN_SLOPE.
 
+## Plan for updates
+- demo
+- cubic-bezier by a cubic inverse
+- `setInterval` mode for discretes
+- an adapter for the react-motion/spring interface
+- polynomial interpolation
+
 ## References
 - [https://reactjs.org/docs/hooks-intro.html](https://reactjs.org/docs/hooks-intro.html)
 - [https://github.com/gre/bezier-easing/blob/master/src/index.js](https://github.com/gre/bezier-easing/blob/master/src/index.js)
