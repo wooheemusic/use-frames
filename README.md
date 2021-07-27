@@ -2,7 +2,9 @@
 This module is a set of [react hook](https://reactjs.org/docs/hooks-intro.html)s and mathematical [explicit functions](https://en.wikipedia.org/wiki/Parametric_equation#Computer-aided_design). The hooks help clients to animate any by continuously releasing primitive numbers of the range of a function or elements of an array.
 
 ## Demo and simulator
-(not implemented)
+- [simulator(draft)](http://use-frames-simulation.surge.sh/)
+- [git for simulator](https://github.com/wooheemusic/use-frames-simulation)
+- (... demo will be updated soon)
 
 ## Methods
 
@@ -125,7 +127,7 @@ Only the *Monte-Carlo* method is implemented. I need to study the javascript num
 This module started from [bezier-easing](https://github.com/gre/bezier-easing). One day, I read its code and did not understand it. So I reviewed refs about numerical anaysis and got to write a similar code. But I still do not understande its empiricism of NEWTON_MIN_SLOPE.
 
 ## Plan for updates
-- demo
+- demo(staggered, parallax, ...)
 - cubic-bezier by a cubic inverse
 - `setInterval` mode for discretes
 - an adapter for the react-motion/spring interface
