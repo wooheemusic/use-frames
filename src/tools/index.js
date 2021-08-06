@@ -1,4 +1,5 @@
 import deduceFromParametric from './deduceFromParametric';
+import getAnimationEffect from './getAnimationEffect';
 import getFramesFromMilli from './getFramesFromMilli';
 import getRange from './getRange';
 import getSummedRange from './getSummedRange';
@@ -6,6 +7,7 @@ import getSummedRange from './getSummedRange';
 
 export {
     deduceFromParametric,
+    getAnimationEffect,
     getFramesFromMilli,
     getRange,
     getSummedRange,
@@ -14,6 +16,7 @@ export {
 
 export default {
     deduceFromParametric,
+    getAnimationEffect,
     getFramesFromMilli,
     getRange,
     getSummedRange,
