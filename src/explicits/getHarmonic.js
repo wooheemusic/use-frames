@@ -16,7 +16,7 @@
 // get c, k, m, d0, v0 from https://use-frames-simulation.surge.sh/
 // if halfPeriods is 30, scaled-to-1-H(1) = 0 that is 30th 0.
 // halfPeriods 0 for infinite 0s
-export default function getHarmonic({ damping: c = 1000, stiffness: k = 110, mass: m = 15, initPosition: d0 = 1, initSpeed: v0 = 0, halfPeriods: hp = 0 }) {
+export default function getHarmonic({ damping: c = 1000, stiffness: k = 110, mass: m = 15, d: d0 = 1, v: v0 = 0, halfPeriods: hp = 0 }) {
     const w0 = Math.sqrt(k / m); // natural frequency
     const A = Math.sqrt(d0 * d0 + (v0 / w0) ** 2); // amplitude
     const p = Math.atan2(v0 / w0, d0); // initial phase
