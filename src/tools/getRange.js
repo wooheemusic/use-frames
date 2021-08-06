@@ -1,6 +1,6 @@
 // Get the range from the even points on the domain [0, 1]
 // An array of n + 1 length appears as n intervals or n frames.
-export default function getRange(n, fs) {
+export default function getRange(n, fs = x => x) {
     const Y = new Array(n + 1);
     const interval = 1 / n;
     let accumulator = 0;

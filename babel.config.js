@@ -5,4 +5,6 @@ const presets = [
     }]
 ];
 
-module.exports = { presets };
+const comments = false;
+
+module.exports = { presets, comments };
