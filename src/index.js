@@ -4,7 +4,7 @@ import useCurve from './useCurve';
 import useDynamicFrames from './useDynamicFrames';
 import useFrames from './useFrames';
 import useQuadraticBezier from './useQuadraticBezier';
-import useHarmonic from './useHarmonic';
+import useDynamicHarmonic from './useDynamicHarmonic';
 // import useRealCurve from './useRealCurve';
 // import useRealFrames from './useRealFrames';
 import createUseSpring from './createUseSpring';
@@ -16,7 +16,7 @@ export {
     useCurve,
     useDynamicFrames,
     useFrames,
-    useHarmonic,   
+    useDynamicHarmonic,   
     useQuadraticBezier,
     // useRealCurve,
     // useRealFrames,

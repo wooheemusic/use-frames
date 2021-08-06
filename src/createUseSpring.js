@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useHarmonic from './useHarmonic';
+import useDynamicHarmonic from './useDynamicHarmonic';
 
 function distance(a, b) {
     return a - b;
@@ -14,7 +14,7 @@ function distance(a, b) {
 export default function createUseSpring(initState, options) {
     return function useSpring(...C) {
         const [{ stiffness, damping, mass }, setSpring] = useState({})
-        const [H, setH, isValid] = useHarmonic(initState, options);
+        const [H, setH, isValid] = useDynamicHarmonic(initState, options);
         const isHArray = Array.isArray(H);
         const [R, setR] = useState(C);
         useEffect(() => setH(C.map((el, i) => ({ d: distance(el, R[i]), v: isHArray ? H[i].v : H.v, stiffness, damping, mass }))), C)
