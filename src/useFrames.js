@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import useAnimationEffect from './useAnimationEffect'
 
 // prevRange will be added to be smoothly merged with the new range.
 export default function useFrames(_state) {
@@ -15,36 +16,23 @@ export default function useFrames(_state) {
 
     useEffect(() => {
         setCurrent(from);
-    }, [from, restart])
+    }, [from, restart]);
 
-    useEffect(() => {
-        let isStreaming = true;
-        let sid = 0;
-        function stop() {
-            isStreaming = false;
-            cancelAnimationFrame(sid);
-        }
-        function animate() {
-            if (isStreaming) {
-                sid = requestAnimationFrame(animate);
-                setCurrent(prev => {
-                    const limit = range.length - 1;
-                    if (prev > limit) {
-                        prev = limit;
-                    }
-                    if (prev > to ) {
-                        return prev - 1;
-                    } else if (prev < to && prev < limit) {
-                        return prev + 1;
-                    } else {
-                        stop();
-                        return prev;
-                    }
-                })
+    useAnimationEffect(stop => {
+        setCurrent(prev => {
+            const limit = range.length - 1;
+            if (prev > limit) {
+                prev = limit;
             }
-        }
-        animate();
-        return stop;
+            if (prev > to) {
+                return prev - 1;
+            } else if (prev < to && prev < limit) {
+                return prev + 1;
+            } else {
+                stop();
+                return prev;
+            }
+        })
     }, [range.length, from, to, onEnd, restart]);
 
     function setFrames(options) {
@@ -66,5 +54,5 @@ export default function useFrames(_state) {
     }, [current === to, onEnd])
 
     // If a shorter range is applied, current cannot be adjusted to its shorter length before it renders once.
-    return [range[Math.min(current, range.length -1)], setFrames];
+    return [range[Math.min(current, range.length - 1)], setFrames];
 }
