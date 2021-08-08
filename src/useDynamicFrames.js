@@ -1,15 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import useAnimationEffect from './useAnimationEffect';
-
-const ESCAPE = null; // or something like 'iegrioHJBUIBUrifne9jNIUHfninwef'
-
-function usePreviousEscape(value) {
-    const ref = useRef(value);
-    useEffect(() => {
-        value !== ESCAPE && (ref.current = value);
-    });
-    return ref.current;
-}
+import usePreviousEscape, { ESCAPE } from './tools/usePreviousEscape';
 
 /**
  * 
@@ -36,14 +27,8 @@ export default function useDynamicFrames(dynamicFunction, veryInitState) {
         })
     }, [state]);
     
-    // In the react lifecycle, this module returns necessary evils of values detached from animation frames.
-    // You should use them idempotently.
-    // If they change its client's state recusively with useEffect, it might ruins the mathematical integrity of the classic-physics world.
-    // For example, if the releasing `state` is a derivative dF of F and its client update F2 = F1 + dF to another useState, it would be an anomaly.
-    // You can use the 3rd element `isValid` of [state, setState, isValid] = useDynamicFrames(dynamicFunction) to escape them.
-    // But `dynamicFunction` does not need to refer to them. `dynamicFunction` never gets invalid values.
     const prevInnerState = usePreviousEscape(innerState);
-    const invalid = innerState === ESCAPE;
+    const invalid = innerState === ESCAPE || prevInnerState === innerState;
     const toRender = invalid ? prevInnerState : innerState;
     return [toRender, setState, !invalid];
 }
