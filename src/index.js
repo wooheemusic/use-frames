@@ -1,13 +1,15 @@
+import createUseSpring from './createUseSpring';
 import useAnimationEffect from './useAnimationEffect';
 import useCubicBezier from './useCubicBezier';
 import useCurve from './useCurve';
 import useDynamicFrames from './useDynamicFrames';
-import useFrames from './useFrames';
-import useQuadraticBezier from './useQuadraticBezier';
 import useDynamicHarmonic from './useDynamicHarmonic';
+import useFrames from './useFrames';
+import useHarmonic from './useHarmonic';
+import useHarmonicForUnit from './useHarmonicForUnit';
+import useQuadraticBezier from './useQuadraticBezier';
 // import useRealCurve from './useRealCurve';
 // import useRealFrames from './useRealFrames';
-import createUseSpring from './createUseSpring';
 
 export {
     createUseSpring,
@@ -17,6 +19,7 @@ export {
     useDynamicFrames,
     useDynamicHarmonic,   
     useHarmonic,
+    useHarmonicForUnit,
     useFrames,
     useQuadraticBezier,
     // useRealCurve,
