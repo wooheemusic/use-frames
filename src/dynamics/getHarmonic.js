@@ -1,7 +1,7 @@
-const PRECISION_DEFAULT = 0.0001;
+import { STIFFNESS, MASS, DAMPING, FREQUENCY, PRECISION } from '../variables';
 
 // A version using explicit harmonic will be updated
-export default function getHarmonic({ stiffness: _k = 100, mass: _m = 1, damping: _c = 5, frequency: fq = 60, precision: pc = PRECISION_DEFAULT } = {}) {
+export default function getHarmonic({ stiffness: _k = STIFFNESS, mass: _m = MASS, damping: _c = DAMPING, frequency: fq = FREQUENCY, precision: pc = PRECISION } = {}) {
     const dt = 1 / fq;
     return (state, stop) => {
         const isArray = Array.isArray(state);
