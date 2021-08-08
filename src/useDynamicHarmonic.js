@@ -21,8 +21,6 @@ function initHarmonic(initState) {
     throw new Error('`useDynamicHarmonic` requires the first argument of number, {v, d} or an array of elements of {v, d}.')
 }
 
-// example : const [[{ d: d11, v: v11 }, { d: d12, v: v12 }, { d: d13, v: v13 }], setS, isValid] = useDynamicHarmonic([{ v: 0, d: 0 }, { v: 0, d: 0 }, { v: 0, d: 0 }], { stiffness: 100 });
-
 /**
  * 
  * @param {number|Object|Array} [initState = 1] 1, 2, 3, ... or an array like [{ v: 0, d: 0 }, { v: 0, d: 0 }, ...]
@@ -31,5 +29,6 @@ function initHarmonic(initState) {
  */
 export default function useDynamicHarmonic(initState = 1, _options) {
     const reducer = useMemo(() => getHarmonic(typeof _options === 'function' ? _options() : _options), []);
-    return useDynamicFrames(reducer, initHarmonic(initState));
+    const init = useMemo(() => initHarmonic(initState), []);
+    return useDynamicFrames(reducer, init);
 }
