@@ -15,11 +15,26 @@ export default function createUseSpring(initState, options) {
         const [{ stiffness, damping, mass }, setSpring] = useState({})
         const [H, setH, isValid] = useDynamicHarmonic(initState, options);
         const isHArray = Array.isArray(H);
-        const [R, setR] = useState(C);
-        useEffect(() => setH(C.map((el, i) => ({ d: distance(el, R[i]), v: (isHArray ? H[i].v : H.v), stiffness, damping, mass }))), C)
+        const [R, setR] = useState(isHArray ? C : C[0]);
         useEffect(() => {
-            isValid && setR(C.map((el, i) => distance(el, (isHArray ? H[i].d : H.d))));
+            if (isHArray) {
+                setH(C.map((el, i) => ({ d: distance(el, R[i]), v: H[i].v, stiffness, damping, mass })))
+            } else {
+                setH({ d: distance(C[0], R), v: H.v, stiffness, damping, mass })
+            }
+        }, C)
+        useEffect(() => {
+            if (isValid) {
+                if (isHArray) {
+                    setR(C.map((el, i) => distance(el, H[i].d)));
+                } else {
+                    setR(distance(C[0], H.d));
+                }
+            }
         }, (isHArray ? H.map(el => el.d) : [H.d]))
-        return [...R, setSpring];
+        if (isHArray) {
+            return [...R, setSpring];
+        }
+        return [R, setSpring];
     }
 }
