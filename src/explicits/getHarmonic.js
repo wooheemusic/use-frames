@@ -42,7 +42,7 @@ export default function getHarmonic({ damping: c = DAMPING, stiffness: k = STIFF
     return H;
 }
 
-export function getHarmonicForUnit(options = {}) {
+export function getHarmonicForUnit(options) {
     const H = getHarmonic(options);
-    return t => (options.initPosition || 1) - H(t); // (0, 0) to (1, d0)
+    return t => ((options && options.v) || 1) - H(t); // (0, 0) to (1, d0)
 }
