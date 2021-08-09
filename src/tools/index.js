@@ -1,24 +1,27 @@
+import blend from './blend';
 import deduceFromParametric from './deduceFromParametric';
 import getAnimationEffect from './getAnimationEffect';
 import getFramesFromMilli from './getFramesFromMilli';
 import getRange from './getRange';
 import getSummedRange from './getSummedRange';
-// import writeArray from './writeArray';
+import usePreviousEscape from './usePreviousEscape';
 
 export {
+    blend,
     deduceFromParametric,
     getAnimationEffect,
     getFramesFromMilli,
     getRange,
     getSummedRange,
-    // writeArray,
+    usePreviousEscape,
 }
 
 export default {
+    blend,
     deduceFromParametric,
     getAnimationEffect,
     getFramesFromMilli,
     getRange,
     getSummedRange,
-    // writeArray,
+    usePreviousEscape,
 }
