@@ -36,11 +36,11 @@ const [ y ] = useQuadraticBezier(n, x1, y1);
 ```
 
 ### `useHarmonic`
-It releases Y: [0,1] -> R of a harmonic oscillator. It uses an explicit function deduced from the differential equation of harmonic oscillator. It takes `d` from `d` to 0. It provides `halfPeriods` to ensure `Y(1) = d`.
+It releases Y: [0,1] -> R of a harmonic oscillator. It uses an explicit function deduced from the differential equation of harmonic oscillator. It takes its displacement from `d` to 0.
 - `d` for the initial displacement.
 - `v` for the initial velocity. 
 - `damping` for a viscous damping coefficient. It makes `d` converge to 0. If it is 0, its displacement vibrates infinitely.
-If `halfPeriods` is 30, you get `H(1) = d` that is 30th `d`.
+- If `halfPeriods` is 30, it scales the harmonic curve, then you get `Y(1) = 0` that is 30th `0`.
 `halfPeriods` 0 means 'not scaled'.
 ```js
 import useHarmonic from 'use-frames/useHarmonic';
@@ -50,7 +50,7 @@ const [ y ] = useHarmonic(n, { damping : 1000, stiffness : 110, mass : 15, d : 1
 const [ y ] = useHarmonic();
 ```
 ### `useHarmonicForUnit`
-This module takes `d` from 0 to `d` for motion usage.
+This module takes the displacement from 0 to `d` for motion usage.
 ```jsx
 import useHarmonicForUnit from 'use-frames/useHarmonicForUnit';
 ```
@@ -218,6 +218,28 @@ useAnimationEffect(stop => {
 return (
     <div>{x}</div>;
 )
+```
+
+### `blend`
+It scales outputs from `a` to `b` by `blend(a, b, y)` as `y` goes from 0 to 1.
+```js
+import useFrames from 'use-frames';
+import blend from 'use-frames/tools/blend';
+
+const Y = [0, ... , 1];
+
+// Both div elements are identical.
+// But `blend` works easily for any other values like blend(42.4, -234, y); // 42.4 to -234
+function SomeComponent() {
+    const [y] = useFrames({range: Y});
+    return (
+        <>
+            <div style={{width: '1rem', transform: `translateX(${200 + y * 100}px)`}}>o</div>
+            <div style={{width: '1rem', transform: `translateX(${blend(200, 300, y)}px)`}}>O</div>
+        </>
+    );
+}
+
 ```
 
 ## Plan for updates
