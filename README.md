@@ -30,7 +30,7 @@ const [ y ] = useCubicBezier(n, x1, y1, x2, y2, { getCubicBezier: bezierEasing }
 ### `useQuadraticBezier`
 `useQuadraticBezier` is much faster than `useCubicBezier`.
 ```js
-import useQuadraticBezier from 'use-frames/getQuadraticBezier';
+import useQuadraticBezier from 'use-frames/useQuadraticBezier';
 // ...
 const [ y ] = useQuadraticBezier(n, x1, y1);
 ```
@@ -198,7 +198,7 @@ const [state, setState] = useDynamicFrames(dynamicFunction, initState);
 ### `useAnimationEffect`
 This is the fundamental module.
 ```js
-import useAnimationEffect from 'use-frames';
+import useAnimationEffect from 'use-frames/useAnimationEffect';
 
 const [x, setX] = useState(0);
 
